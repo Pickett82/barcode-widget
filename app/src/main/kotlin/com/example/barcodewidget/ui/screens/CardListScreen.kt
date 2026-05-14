@@ -194,8 +194,8 @@ fun LoyaltyCardItem(
                     overflow = TextOverflow.Ellipsis
                 )
                 if (card.lastUsedAt > 0) {
-                    val dateStr = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
-                        .format(Date(card.lastUsedAt))
+                    val formatter = remember { SimpleDateFormat("dd MMM yyyy", Locale.getDefault()) }
+                    val dateStr = formatter.format(Date(card.lastUsedAt))
                     Text(
                         text = "Last used: $dateStr",
                         style = MaterialTheme.typography.bodySmall,

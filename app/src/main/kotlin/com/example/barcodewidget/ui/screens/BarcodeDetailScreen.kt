@@ -171,11 +171,13 @@ private fun renderBarcode(value: String, format: String): Bitmap? {
         }
         val bitMatrix = MultiFormatWriter().encode(value, barcodeFormat, width, height, hints)
         val bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
-        for (x in 0 until width) {
-            for (y in 0 until height) {
-                bmp.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
+        val pixels = IntArray(width * height)
+        for (y in 0 until height) {
+            for (x in 0 until width) {
+                pixels[y * width + x] = if (bitMatrix[x, y]) Color.BLACK else Color.WHITE
             }
         }
+        bmp.setPixels(pixels, 0, width, 0, 0, width, height)
         bmp
     } catch (e: Exception) {
         null

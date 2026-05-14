@@ -9,6 +9,7 @@ object StoreCatalogLoader {
     private var entries: List<StoreEntry> = emptyList()
 
     fun init(context: Context) {
+        if (entries.isNotEmpty()) return
         val json = context.assets.open("store_catalog.json").bufferedReader().use { it.readText() }
         val type = object : TypeToken<List<StoreEntryJson>>() {}.type
         val rawEntries: List<StoreEntryJson> = Gson().fromJson(json, type)
