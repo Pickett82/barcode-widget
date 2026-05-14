@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Barcode Widget</string>
+    <string name="widget_description">Shows your loyalty cards</string>
+    <string name="widget_empty">No loyalty cards added yet</string>
+    <string name="store_logo_description">Store logo</string>
+    <string name="add_card">Add Card</string>
+    <string name="save_card">Save Card</string>
+    <string name="delete_card">Delete Card</string>
+    <string name="pin_card">Pin Card</string>
+    <string name="unpin_card">Unpin Card</string>
+    <string name="barcode_value">Barcode Value</string>
+    <string name="barcode_format">Barcode Format</string>
+    <string name="choose_store">Choose Store</string>
+    <string name="custom_store">Custom Store</string>
+    <string name="cancel">Cancel</string>
+</resources>
