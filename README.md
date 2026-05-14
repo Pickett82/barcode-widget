@@ -28,4 +28,4 @@ Commands:
 ## Notes
 
 - Widget data is backed by Room and refreshed after create, delete, pin, and usage updates.
-- Known-store metadata lives in `/home/runner/work/barcode-widget/barcode-widget/app/src/main/assets/store_catalog.json`.
+- Known-store metadata lives in `app/src/main/assets/store_catalog.json`.
