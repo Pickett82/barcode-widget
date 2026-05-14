@@ -48,7 +48,6 @@ class BarcodeWidgetViewModel(
 ) : ViewModel() {
     private val screen = MutableStateFlow<ScreenState>(ScreenState.Home)
     private val formState = MutableStateFlow(AddCardFormState())
-    private val cardOpenedFromScreen = mutableSetOf<Long>()
 
     val uiState: StateFlow<BarcodeWidgetUiState> = combine(
         cardRepository.observeCards(),
@@ -94,15 +93,17 @@ class BarcodeWidgetViewModel(
     }
 
     fun onBack() {
-        screen.value = ScreenState.Home
+        screen.value = when (screen.value) {
+            ScreenState.Scanner -> ScreenState.AddCard
+            is ScreenState.Detail -> ScreenState.Home
+            else -> ScreenState.Home
+        }
         formState.update { it.copy(errorMessage = null) }
     }
 
     fun openDetail(cardId: Long) {
         screen.value = ScreenState.Detail(cardId)
-        if (cardOpenedFromScreen.add(cardId)) {
-            viewModelScope.launch { cardRepository.incrementUsage(cardId) }
-        }
+        viewModelScope.launch { cardRepository.incrementUsage(cardId) }
     }
 
     fun onWidgetOpen(cardId: Long) {
@@ -190,7 +191,6 @@ class BarcodeWidgetViewModel(
                 ),
             )
             result.onSuccess {
-                cardOpenedFromScreen.clear()
                 formState.value = AddCardFormState()
                 screen.value = ScreenState.Home
             }.onFailure { error ->
@@ -200,10 +200,7 @@ class BarcodeWidgetViewModel(
     }
 
     fun togglePinned(cardId: Long) {
-        viewModelScope.launch {
-            cardRepository.togglePinned(cardId)
-            cardOpenedFromScreen.remove(cardId)
-        }
+        viewModelScope.launch { cardRepository.togglePinned(cardId) }
     }
 
     fun movePinned(cardId: Long, direction: Int) {
@@ -214,7 +211,6 @@ class BarcodeWidgetViewModel(
         viewModelScope.launch {
             cardRepository.deleteCard(cardId)
             screen.value = ScreenState.Home
-            cardOpenedFromScreen.remove(cardId)
         }
     }
 

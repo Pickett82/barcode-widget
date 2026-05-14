@@ -6,7 +6,6 @@ import com.pickett82.barcodewidget.widget.BarcodeWidgetProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
-import java.util.Locale
 
 data class LoyaltyCard(
     val id: Long,
@@ -74,17 +73,19 @@ class CardRepository(
                     .split(Regex("\\s+"))
                     .filter { it.isNotBlank() }
                     .take(2)
-                    .joinToString("") { it.first().uppercase(Locale.UK) }
+                    .joinToString("") { it.first().uppercaseChar().toString() }
                     .ifBlank { "C" },
                 brandColor = 0xFF455A64.toInt(),
                 textColor = 0xFFFFFFFF.toInt(),
             )
 
             val customLogoUri = draft.customLogoUri?.takeIf { it.isNotBlank() }?.also { uri ->
-                context.contentResolver.takePersistableUriPermission(
-                    uri.toUri(),
-                    android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION,
-                )
+                runCatching {
+                    context.contentResolver.takePersistableUriPermission(
+                        uri.toUri(),
+                        android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION,
+                    )
+                }
             }
 
             val entity = LoyaltyCardEntity(

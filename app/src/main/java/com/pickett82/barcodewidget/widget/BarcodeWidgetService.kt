@@ -34,6 +34,9 @@ private class BarcodeRemoteViewsFactory(
     override fun getCount(): Int = cards.size
 
     override fun getViewAt(position: Int): RemoteViews {
+        if (position !in cards.indices) {
+            return RemoteViews(app.packageName, R.layout.widget_card_row)
+        }
         val card = cards[position]
         val views = RemoteViews(app.packageName, R.layout.widget_card_row)
         val size = app.resources.getDimensionPixelSize(R.dimen.widget_logo_size)
