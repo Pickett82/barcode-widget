@@ -1,0 +1,9 @@
+[
+  { "canonicalName": "Boots", "aliases": ["boots", "boots pharmacy"], "logoResName": "logo_boots" },
+  { "canonicalName": "Costa Coffee", "aliases": ["costa", "costa coffee"], "logoResName": "logo_costa" },
+  { "canonicalName": "Lidl", "aliases": ["lidl"], "logoResName": "logo_lidl" },
+  { "canonicalName": "Morrisons", "aliases": ["morrisons", "morrison's"], "logoResName": "logo_morrisons" },
+  { "canonicalName": "Nectar (Sainsbury's)", "aliases": ["nectar", "sainsburys", "sainsbury's"], "logoResName": "logo_nectar" },
+  { "canonicalName": "Tesco Clubcard", "aliases": ["tesco", "tesco clubcard", "clubcard"], "logoResName": "logo_tesco" },
+  { "canonicalName": "Waitrose", "aliases": ["waitrose", "waitrose & partners"], "logoResName": "logo_waitrose" }
+]

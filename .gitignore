@@ -1,0 +1,30 @@
+# Android generated
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# Build directories
+build/
+.gradle/
+app/build/
+
+# Android Studio / IntelliJ IDEA
+*.iml
+.idea/
+.DS_Store
+captures/
+
+# Local properties (machine-specific)
+local.properties
+
+# Keystore files
+*.jks
+*.keystore
+
+# Proguard
+proguard/
+
+# Test results
+test-results/
