@@ -1,0 +1,58 @@
+[
+  {
+    "canonicalName": "Waitrose",
+    "aliases": ["waitrose", "waitrose & partners", "mywaitrose"],
+    "initials": "W",
+    "brandColor": "#256B3A",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "canonicalName": "Tesco Clubcard",
+    "aliases": ["tesco", "clubcard", "tesco clubcard"],
+    "initials": "TC",
+    "brandColor": "#00539F",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "canonicalName": "Sainsbury's Nectar",
+    "aliases": ["nectar", "sainsburys", "sainsbury's", "sainsburys nectar"],
+    "initials": "N",
+    "brandColor": "#EF7D00",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "canonicalName": "Boots Advantage",
+    "aliases": ["boots", "boots advantage", "advantage card"],
+    "initials": "B",
+    "brandColor": "#0056A4",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "canonicalName": "Starbucks Rewards",
+    "aliases": ["starbucks", "starbucks rewards"],
+    "initials": "SR",
+    "brandColor": "#00704A",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "canonicalName": "Costa Club",
+    "aliases": ["costa", "costa coffee", "costa club"],
+    "initials": "CC",
+    "brandColor": "#7B2845",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "canonicalName": "Morrisons More",
+    "aliases": ["morrisons", "morrisons more", "more card"],
+    "initials": "MM",
+    "brandColor": "#1D5F38",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "canonicalName": "Co-op Membership",
+    "aliases": ["coop", "co-op", "co-op membership"],
+    "initials": "CO",
+    "brandColor": "#008CCB",
+    "textColor": "#FFFFFF"
+  }
+]
